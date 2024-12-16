@@ -11,3 +11,5 @@ Route::get('/user', function (Request $request) {
 Route::get("/books",[BookController::class,"index"]);
 
 Route::get("/books/{id}",[BookController::class,"show"])->whereNumber('id');
+
+Route::post("/books",[BookController::class,"store"]);

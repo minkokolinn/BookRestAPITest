@@ -29,4 +29,15 @@ class BookController extends Controller
             ]);
         }
     }
+
+    public function store(Request $request){
+        $book = new Book();
+        $book->name = $request->name;
+        $book->author = $request->author;
+        $book->publish_date = $request->publish_date;
+        $book->save();
+        return response()->json([
+            "message" => "book added"
+        ],201);
+    }
 }
