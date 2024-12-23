@@ -62,4 +62,18 @@ class BookController extends Controller
             ]);
         }
     }
+
+    public function destroy(Request $request,$id){
+        if(Book::where("id",$id)->exists()){
+            $book = Book::find($id);
+            $book->delete();
+            return response()->json([
+                "message" => "Deleted..."
+            ]);
+        }else{
+            return response()->json([
+                "error" => "Book Not Found!!!"
+            ]);
+        }
+    }
 }
